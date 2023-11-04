@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef HEADER_H
+#define HEADER_H
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -30,7 +30,7 @@ extern char **environ;
  */
 typedef struct info
 {
-	char **ar;
+	char **argv;
 	char *cdline;
 	char **arg_tok;
 	int position;
@@ -41,23 +41,23 @@ typedef struct info
 
 /**
  * struct div_node_lst - struct contains linked list to store separators
- * @div: the separator characters (;, |, &)
+ * @divider: the separator characters (;, |, &)
  * @subsqt: pointer to the next node in the list
  */
 typedef struct div_node_lst
 {
 	char divider;
 	struct div_node_lst *subsqt;
-} div_t;
+} divd_t;
 
 /**
- * struct cdline_node_lst - a struct contains linked list to store command lines
+ * struct cdline_node_lst - a struct contains linked list to store command line
  * @ln: commandline
  * @subsqt: a pointer to the next node
  */
 typedef struct cdline_node_lst
 {
-	char ln*;
+	char *ln;
 	struct cdline_node_lst *subsqt;
 } cdline_t;
 
@@ -73,7 +73,7 @@ typedef struct vrs_node_lst
 	int vrlen;
 	char *val;
 	int vlen;
-	struct var_list_node *nxt;
+	struct var_list_node *subsqt;
 } vrs_t;
 
 /**
@@ -107,13 +107,13 @@ int cmp_chars(char ser[], const char *div);
 int chars_count(char *ser, int indx);
 int indx_chars(char *ser, int *indx);
 
-div_t *append_div(div_t **start, char div);
-void clear_div(sep_t **start);
+divd_t *append_div(divd_t **start, char div);
+void clear_div(divd_t **start);
 cdline_t *append_cdline(cdline_t **start, char *ln);
 void clear_cdline(cdline_t **start);
 vrs_t *append_vrs(vrs_t **start, int vrlen, char *val, int vlen);
 void clear_vrs(vrs_t **start);
-void append_nodes_list(div_t **div_start, cdline_t **cdline_start, char *ser);
+void append_nodes_list(divd_t **div_start, cdline_t **cdline_start, char *ser);
 
 int count_num(int count);
 char *string_fmt(int count);
@@ -141,14 +141,14 @@ char **data_parse(char *ser);
 char *remove_coms(char *stat);
 
 void opens_sh(datashell *tam);
-void _subsqt_lst(div_t **div_lst, cdline_t **cdline_lst, datashell *tam);
+void _subsqt_lst(divd_t **div_lst, cdline_t **cdline_lst, datashell *tam);
 int exm_currdir(char *way, int *indx);
 int exm_execc(datashell *tam);
 int exm_perm(char *path, datashell *tam);
 
 void exm_envarias(vrs_t **start, char *ser, datashell *tam);
 int handle_uniq_vrs(vrs_t **start, char *ser, char *list, datashell *tam);
-char *string_sub_vrs(var_t **start, char *ser, char *nser, int nlong);
+char *string_sub_vrs(vrs_t **start, char *ser, char *nser, int nlong);
 char *vrs_string_swap(char *ser, datashell *tam);
 char *execute_path(char *cmnd, char **envarias);
 
@@ -158,7 +158,7 @@ ssize_t _getline_(char **ptr, size_t *lndimen, FILE *curr);
 int display_enviros(datashell *tam);
 int envarias_comp(const char *envid, const char *id);
 char *getenV_(const char *id, char **envarias);
-char *dup_env_stat(char *id, char sig*);
+char *dup_env_stat(char *id, char *sig);
 void set_enV_(char *id, char *sig, datashell *tam);
 int _setenV_(datashell *tam);
 int unsets_Env(datashell *tam);
