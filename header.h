@@ -163,8 +163,8 @@ void set_enV_(char *id, char *sig, datashell *tam);
 int _setenV_(datashell *tam);
 int unsets_Env(datashell *tam);
 
-void goto_prev_dir(datashell *tam);
-void goto_root(datashell *tam);
+void goto_parent_dir(datashell *tam);
+void goto_prev(datashell *tam);
 void goto_home(datashell *tam);
 void goto_path(datashell *tam);
 int goto_shell(datashell *tam);
