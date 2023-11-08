@@ -73,7 +73,7 @@ typedef struct vrs_node_lst
 	int vrlen;
 	char *val;
 	int vlen;
-	struct var_list_node *subsqt;
+	struct vrs_node_lst *subsqt;
 } vrs_t;
 
 /**
@@ -129,9 +129,9 @@ char *exit_shell_error(datashell *tam);
 char *settings_emsg(datashell *tam);
 char *path126_emsg(datashell *tam);
 
-int find_err(datashell *dsh, int errval);
+int find_err(datashell *tam, int errval);
 int (*find_inbuilt(char *cmnd))(datashell *);
-void find_signal(int sig);
+void find_signal(int signal);
 int handles_help(datashell *tam);
 
 char *exam_user_data(int *its_eof);
@@ -147,7 +147,7 @@ int exm_execc(datashell *tam);
 int exm_perm(char *path, datashell *tam);
 
 void exm_envarias(vrs_t **start, char *ser, datashell *tam);
-int handle_uniq_vrs(vrs_t **start, char *ser, char *list, datashell *tam);
+int handle_uniq_vrs(vrs_t **start, char *ser, char *last, datashell *tam);
 char *string_sub_vrs(vrs_t **start, char *ser, char *nser, int nlong);
 char *vrs_string_swap(char *ser, datashell *tam);
 char *execute_path(char *cmnd, char **envarias);
