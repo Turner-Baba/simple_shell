@@ -109,9 +109,9 @@ int indx_chars(char *ser, int *indx);
 
 divd_t *append_div(divd_t **start, char div);
 void clear_div(divd_t **start);
-cdline_t *append_cdline(cdline_t **start, char *ln);
+cdline_t *append_cdline(cdline_t **start, char *line);
 void clear_cdline(cdline_t **start);
-vrs_t *append_vrs(vrs_t **start, int vrlen, char *val, int vlen);
+vrs_t *append_vrs(vrs_t **start, int varlen, char *valu, int valength);
 void clear_vrs(vrs_t **start);
 void append_nodes_list(divd_t **div_start, cdline_t **cdline_start, char *ser);
 
