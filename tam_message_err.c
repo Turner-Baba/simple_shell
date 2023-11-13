@@ -61,7 +61,7 @@ char *cmd_invalid(datashell *tam)
 	str_concat(err, cd_ctrl);
 	str_concat(err, ": ");
 	str_concat(err, tam->arg_tok[0]);
-	str_concat(err, ": Unable to find\n");
+	str_concat(err, ": not found\n");
 	str_concat(err, "\0");
 	free(cd_ctrl);
 	return (err);
