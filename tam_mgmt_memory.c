@@ -11,7 +11,7 @@ void clear_div(divd_t **start)
 	divd_t *temp;
 	divd_t *point;
 
-	if (start !=NULL)
+	if (start != NULL)
 	{
 		point = *start;
 		while ((temp = point) != NULL)

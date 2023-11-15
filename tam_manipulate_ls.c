@@ -9,7 +9,7 @@
 divd_t *append_div(divd_t **start, char div)
 {
 	divd_t *nnde, *temp;
-	
+
 	nnde = malloc(sizeof(divd_t));
 	if (nnde == NULL)
 		return (NULL);
@@ -28,9 +28,9 @@ divd_t *append_div(divd_t **start, char div)
 }
 
 /**
- *
+ * append_cdline - adds to the command line
  * @start: pointer to head of linked list
- * @
+ * @line: line
  * Return: memory address of updated head of linked list
  */
 
@@ -60,9 +60,9 @@ cdline_t *append_cdline(cdline_t **start, char *line)
 /**
  * append_vrs - appends var at the end of linked list
  * @start: pointer to head of linked list
- * @vrlen: variable length
- * @val: variable value
- * @vlen: variable length
+ * @varlen: variable length
+ * @valu: variable value
+ * @valength: variable length
  * Return: memory address of updated head of linked list
  */
 
@@ -93,7 +93,7 @@ vrs_t *append_vrs(vrs_t **start, int varlen, char *valu, int valength)
 /**
  * append_nodes_list - appends divider and cdline to linked lists
  * @div_start: pointer to head of divider linked list
- * @cdline_t: pointer to head of cdline linked list
+ * @cdline_start: pointer to head of linked list
  * @ser: string input
  * Return: void
  */
